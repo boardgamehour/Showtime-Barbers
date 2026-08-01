@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Showtime Barber Lounge | Paignton</title>
+    <style>
+      :root {
+        --bg-color: #0b0b0e;
+        --card-bg: rgba(22, 22, 30, 0.88);
+        --accent: #d4af37;
+        /* Barber Gold */
+        --accent-hover: #b5932a;
+        --text: #ffffff;
+        --text-muted: #b0b0ba;
+        --border: rgba(255, 255, 255, 0.1);
+        /* Background Image URLs */
+        --hero-bg: url('https://images.unsplash.com/photo-1503951914875-452162b0f3f1?auto=format&fit=crop&w=1920&q=80');
+        --card-bg-img: url('https://images.unsplash.com/photo-1585747860715-2ba37e788b70?auto=format&fit=crop&w=1200&q=80');
+      }
+
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        background-color: var(--bg-color);
+        color: var(--text);
+        line-height: 1.6;
+      }
+
+      header {
+        position: relative;
+        text-align: center;
+        padding: 90px 20px 70px;
+        background: linear-gradient(180deg, rgba(11, 11, 14, 0.75) 0%, var(--bg-color) 100%), var(--hero-bg);
+        background-size: cover;
+        background-position: center;
+        border-bottom: 1px solid var(--border);
+      }
+
+      .badge {
+        display: inline-block;
+        background-color: rgba(212, 175, 55, 0.2);
+        color: var(--accent);
+        border: 1px solid var(--accent);
+        padding: 6px 16px;
+        border-radius: 20px;
+        font-size: 0.85rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        margin-bottom: 12px;
+        backdrop-filter: blur(4px);
+      }
+
+      h1 {
+        font-size: 3rem;
+        font-weight: 800;
+        text-transform: uppercase;
+        margin-bottom: 6px;
+        letter-spacing: 2px;
+        text-shadow: 0 4px 10px rgba(0, 0, 0, 0.8);
+      }
+
+      .rating-badge {
+        color: var(--accent);
+        font-size: 1rem;
+        margin-bottom: 15px;
+        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
+      }
+
+      .rating-badge span {
+        color: var(--text-muted);
+        font-size: 0.85rem;
+        margin-left: 6px;
+      }
+
+      .subtitle {
+        font-size: 1.15rem;
+        color: #e0e0e0;
+        max-width: 550px;
+        margin: 0 auto 30px;
+        text-shadow: 0 2px 5px rgba(0, 0, 0, 0.8);
+      }
+
+      .cta-group {
+        display: flex;
+        justify-content: center;
+        gap: 15px;
+        flex-wrap: wrap;
+      }
+
+      .btn {
+        background-color: var(--accent);
+        color: #000;
+        padding: 14px 30px;
+        text-decoration: none;
+        font-weight: 700;
+        border-radius: 8px;
+        text-transform: uppercase;
+        font-size: 0.95rem;
+        transition: all 0.2s;
+        box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+        display: inline-block;
+      }
+
+      .btn:hover {
+        background-color: var(--accent-hover);
+      }
+
+      .btn-outline {
+        background-color: rgba(0, 0, 0, 0.5);
+        color: var(--text);
+        border: 2px solid var(--border);
+        backdrop-filter: blur(5px);
+      }
+
+      .container {
+        max-width: 850px;
+        margin: 0 auto;
+        padding: 40px 20px;
+      }
+
+      .card {
+        position: relative;
+        background-color: var(--card-bg);
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        padding: 30px;
+        margin-bottom: 30px;
+        backdrop-filter: blur(10px);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        overflow: hidden;
+      }
+
+      .card-bg-featured {
+        background: linear-gradient(135deg, rgba(22, 22, 30, 0.92) 0%, rgba(11, 11, 14, 0.95) 100%), var(--card-bg-img);
+        background-size: cover;
+        background-position: center;
+      }
+
+      .card h2 {
+        margin-bottom: 20px;
+        color: var(--accent);
+        font-size: 1.4rem;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+      }
+
+      .service-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 15px;
+      }
+
+      .service-item {
+        background-color: rgba(29, 29, 40, 0.8);
+        border: 1px solid var(--border);
+        padding: 20px;
+        border-radius: 8px;
+        backdrop-filter: blur(5px);
+      }
+
+      .service-item h3 {
+        font-size: 1.1rem;
+        margin-bottom: 2px;
+        color: #fff;
+      }
+
+      .service-item .price {
+        color: var(--accent);
+        font-weight: bold;
+        margin-bottom: 8px;
+        font-size: 1rem;
+      }
+
+      .service-item p {
+        font-size: 0.88rem;
+        color: var(--text-muted);
+      }
+
+      /* Barber Profile Photo Styling */
+      .barber-card {
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .barber-img {
+        width: 110px;
+        height: 110px;
+        border-radius: 50%;
+        border: 2px solid var(--accent);
+        object-fit: cover;
+        margin-bottom: 12px;
+        background-color: #111;
+      }
+
+      .contact-block {
+        margin-top: 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 12px;
+        background-color: rgba(29, 29, 40, 0.6);
+        border: 1px solid var(--border);
+        padding: 20px;
+        border-radius: 8px;
+      }
+
+      .hours-list {
+        list-style: none;
+      }
+
+      .hours-list li {
+        display: flex;
+        justify-content: space-between;
+        padding: 12px 0;
+        border-bottom: 1px solid var(--border);
+        font-size: 0.95rem;
+      }
+
+      .hours-list li:last-child {
+        border-bottom: none;
+      }
+
+      footer {
+        text-align: center;
+        padding: 40px 20px;
+        color: var(--text-muted);
+        font-size: 0.85rem;
+        border-top: 1px solid var(--border);
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <span class="badge">Appointments & Bookings</span>
+      <h1>Showtime Barber Lounge</h1>
+      <div class="rating-badge"> ★ ★ ★ ★ ★ <span>4.9 Rating in Paignton</span>
+      </div>
+      <p class="subtitle">Premier barbering on Marldon Road, Paignton. Skin fades, precision haircuts, and beard grooming.</p>
+      <div class="cta-group">
+        <a href="https://book.ringmybarber.com/shop/ShowtimeBarberLounge" target="_blank" class="btn">Book Appointment</a>
+        <a href="https://www.google.com/maps/dir//Showtime+Barber+Lounge,+Showtime,+118+Marldon+Road,+Paignton,+United+Kingdom" target="_blank" class="btn btn-outline">Get Directions</a>
+      </div>
+    </header>
+    <div class="container">
+      <!-- Services Section -->
+      <div class="card card-bg-featured">
+        <h2>Services & Pricing</h2>
+        <div class="service-grid">
+          <div class="service-item">
+            <h3>Gentleman Haircut</h3>
+            <div class="price">£18.00</div>
+            <p>Classic gent's haircut, styling, and finish.</p>
+          </div>
+          <div class="service-item">
+            <h3>Razor Skin Fade</h3>
+            <div class="price">£22.00</div>
+            <p>Precision razor skin fade with foil finish.</p>
+          </div>
+          <div class="service-item">
+            <h3>Full Scissor Cut</h3>
+            <div class="price">£20.00</div>
+            <p>Complete scissor re-style and scissor work.</p>
+          </div>
+          <div class="service-item">
+            <h3>Skin Fade & Beard Groom</h3>
+            <div class="price">£30.00</div>
+            <p>Full skin fade paired with beard grooming and lineup.</p>
+          </div>
+          <div class="service-item">
+            <h3>Full Beard Groom & Detail</h3>
+            <div class="price">£12.00</div>
+            <p>Full beard trim, razor edge-up, and shaping.</p>
+          </div>
+          <div class="service-item">
+            <h3>Father & Son Package</h3>
+            <div class="price">£35.00</div>
+            <p>Combined haircut package for father and son.</p>
+          </div>
+        </div>
+      </div>
+      <!-- Team Section with Live ImgBB Photos -->
+      <div class="card">
+        <h2>Meet The Barbers</h2>
+        <blockquote style="border-left: 3px solid var(--accent); padding-left: 15px; margin-bottom: 20px; color: var(--text-muted); font-size: 0.9rem; font-style: italic;"> "Here at Showtime we have 3 barbers who take huge pride in their work and customer health and safety is our top priority. Each customer once seated will have our full attention." — Team Showtime </blockquote>
+        <div class="service-grid">
+          <!-- Jamie Collings Profile -->
+          <div class="service-item barber-card">
+            <img src="https://i.ibb.co/8ngvfB1t/IMG-0488.jpg" alt="Jamie Collings" class="barber-img">
+            <h3 style="color: var(--accent); font-size: 1.15rem;">Jamie Collings</h3>
+            <p style="margin-bottom: 15px;">Barber at Showtime</p>
+            <a href="https://www.ringmybarber.com/barber-profile/jamie-collings" target="_blank" class="btn btn-outline" style="padding: 6px 14px; font-size: 0.75rem;">Book Jamie</a>
+          </div>
+          <!-- Shane Barber Profile -->
+          <div class="service-item barber-card">
+            <img src="https://i.ibb.co/mCLL1SZt/IMG-0489.jpg" alt="Shane Barber" class="barber-img">
+            <h3 style="color: var(--accent); font-size: 1.15rem;">Shane Barber</h3>
+            <p style="margin-bottom: 15px;">Barber at Showtime</p>
+            <a href="https://www.ringmybarber.com/barber-profile/shane-barber" target="_blank" class="btn btn-outline" style="padding: 6px 14px; font-size: 0.75rem;">Book Shane</a>
+          </div>
+          <!-- Lewis Showtime Profile -->
+          <div class="service-item barber-card">
+            <img src="https://i.ibb.co/RGjQJHLL/IMG-0490.jpg" alt="Lewis Showtime" class="barber-img">
+            <h3 style="color: var(--accent); font-size: 1.15rem;">Lewis Showtime</h3>
+            <p style="margin-bottom: 15px;">Barber at Showtime</p>
+            <a href="https://book.ringmybarber.com/shop/ShowtimeBarberLounge" target="_blank" class="btn btn-outline" style="padding: 6px 14px; font-size: 0.75rem;">Book Lewis</a>
+          </div>
+        </div>
+      </div>
+      <!-- Opening Hours Section -->
+      <div class="card">
+        <h2>Opening Hours</h2>
+        <ul class="hours-list">
+          <li>
+            <span>Monday</span>
+            <strong>9:30 AM – 5:00 PM</strong>
+          </li>
+          <li>
+            <span>Tuesday – Wednesday</span>
+            <strong>9:00 AM – 5:30 PM</strong>
+          </li>
+          <li>
+            <span>Thursday – Friday</span>
+            <strong>9:00 AM – 7:00 PM</strong>
+          </li>
+          <li>
+            <span>Saturday</span>
+            <strong>8:00 AM – 8:00 PM</strong>
+          </li>
+          <li>
+            <span>Sunday</span>
+            <strong>Closed</strong>
+          </li>
+        </ul>
+      </div>
+      <!-- Location & Contact Section -->
+      <div class="card">
+        <h2>Location & Info</h2>
+        <p>
+          <strong>Address:</strong> 118–120 Marldon Road, Paignton, TQ3 3NJ
+        </p>
+        <p style="color: var(--text-muted); margin-top: 8px;">Bookings are managed via Ring My Barber so you can pick your preferred barber, date, and time easily.</p>
+        <div class="contact-block">
+          <div>
+            <h3 style="font-size: 1.05rem; margin-bottom: 2px;">Prefer to Call?</h3>
+            <p style="font-size: 0.88rem; color: var(--text-muted);">Get in touch directly for enquiries or daily availability.</p>
+          </div>
+          <a href="tel:+447734426668" class="btn btn-outline" style="padding: 10px 20px; font-size: 0.85rem;">Call 07734 426668</a>
+        </div>
+      </div>
+    </div>
+    <footer> &copy; Showtime Barber Lounge • 118–120 Marldon Road, Paignton </footer>
+  </body>
+</html>
